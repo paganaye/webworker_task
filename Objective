@@ -1,0 +1,9 @@
+// Hi Vishal
+// Objective - I need the webworker to call the `test()` function in showPageValidate.js on time, even after the browser goes inactive
+// and throttles time, preventing something like setInterval() from properly working over longer periods.
+
+// The timer for the call is set at one day and 15 minutes, although you can shorten to test the code
+// (it just has to be longer than a browser timeout).
+
+// The webworker timer should successfully print out "worked" on the show.ejs page console
+// after the timer goes off.
