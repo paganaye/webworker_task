@@ -4,22 +4,36 @@
 <body>
     <main>
         <p>Hi</p>
-        <button onclick="buttonClicked()">Click Me</button>
-        <p>Count numbers: <output id="result"></output></p>
+        <button onclick="onWebWorkerButtonClicked()">web worker</button>
+        <p>Web worker Counter: <output id="webWorkerCounter"></output></p>
+        <button onclick="onServiceWOrkerButtonClicked()">service worker</button>
+        <p>Service worker Counter: <output id="serviceWorkerCounter"></output></p>
     </main>
 
     <script>
 
-        function buttonClicked() {
+        function onWebWorkerButtonClicked() {
             if (typeof (Worker) !== "undefined") {
-                if (typeof (w) == "undefined") {
-                    w = new Worker('/public/javascripts/webWorker.js');
-                }
+                let w = new Worker('/public/javascripts/webWorker.js');
                 w.onmessage = function (event) {
-                    document.getElementById("result").innerHTML = event.data;
+                    document.getElementById("webWorkerCounter").innerHTML = event.data;
                 };
             } else {
-                document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+                document.getElementById("webWorkerCounter").innerHTML = "Sorry! No Web Worker support.";
+            }
+        }
+        function onServiceWOrkerButtonClicked() {
+            if (typeof (ServiceWorker) !== "undefined") {
+                navigator.serviceWorker.register('/public/javascripts/serviceWorker.js').then(reg => {
+                    console.log(reg)
+                }, (err) => {
+                    document.getElementById("serviceWorkerCounter").innerHTML = event.data;
+                });
+                // w.onmessage = function (event) {
+                //     document.getElementById("result").innerHTML = event.data;
+                // };
+            } else {
+                document.getElementById("serviceWorkerCounter").innerHTML = "Sorry! No Service Worker support.";
             }
         }
     </script>
