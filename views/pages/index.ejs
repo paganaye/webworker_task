@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <main>
+        <p>Hi</p>
+        <button onclick="buttonClicked()">Click Me</button>
+        <p>Count numbers: <output id="result"></output></p>
+    </main>
+
+    <script>
+
+        function buttonClicked() {
+            if (typeof (Worker) !== "undefined") {
+                if (typeof (w) == "undefined") {
+                    w = new Worker('/public/javascripts/webWorker.js');
+                }
+                w.onmessage = function (event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            } else {
+                document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+            }
+        }
+    </script>
+</body>
+
+</html>

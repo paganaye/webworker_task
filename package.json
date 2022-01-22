@@ -1,0 +1,28 @@
+{
+  "name": "webworker_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon -e .js,.ejs app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paganaye/webworker_task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paganaye/webworker_task/issues"
+  },
+  "homepage": "https://github.com/paganaye/webworker_task#readme",
+  "dependencies": {
+    "connect-livereload": "^0.6.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "livereload": "^0.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
