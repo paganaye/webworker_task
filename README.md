@@ -3,7 +3,7 @@
 Experiments with Web workers and Service workers. Because you never have enough workers.
 
 
-## Installing Extension
+## Installing and running the application
 
 clone the repository or download the sournd.
 
